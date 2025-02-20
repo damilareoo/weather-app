@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <div class="weather-card">
+        <div class="weather-header">
+            <h2 class="city">Weather in <span id="city-name">-</span></h2>
+            <div class="temp-container">
+                <h1 class="temperature"><span id="temp">-</span>°C</h1>
+                <img id="weather-icon" src="./images/weather.jpg" alt="weather icon">
+            </div>
+            <p class="description" id="description">-</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-item">
+                <i class="fas fa-temperature-low"></i>
+                <span>Feels Like</span>
+                <span id="feels-like">-</span>
+            </div>
+            <div class="metric-item">
+                <i class="fas fa-tint"></i>
+                <span>Humidity</span>
+                <span id="humidity">-</span>
+            </div>
+            <div class="metric-item">
+                <i class="fas fa-wind"></i>
+                <span>Wind</span>
+                <span id="wind-speed">-</span>
+            </div>
+            <div class="metric-item">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <span>Pressure</span>
+                <span id="pressure">-</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="error-message"></div>
+    <div class="loader"></div>
+    <script src="index.js"></script>
+</body>
+</html>
