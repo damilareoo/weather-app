@@ -24,7 +24,6 @@ const cityName = document.getElementById('city-name');
 const temp = document.getElementById('temp');
 const weatherIcon = document.getElementById('weather-icon');
 const description = document.getElementById('description');
-const feelsLike = document.getElementById('feels-like');
 const humidity = document.getElementById('humidity');
 const windSpeed = document.getElementById('wind-speed');
 const pressure = document.getElementById('pressure');
@@ -67,6 +66,27 @@ function showError(message) {
     }, 3000);
 }
 
+function formatDate(timezoneOffset) {
+    // Get current UTC time
+    const now = new Date();
+    const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+    
+    // Convert to city's local time
+    const cityTime = new Date(utcTime + (timezoneOffset * 1000));
+    
+    const options = { 
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+    };
+
+    return cityTime.toLocaleString('en-US', options);
+}
+
 async function getWeatherData(city) {
     try {
         showLoader();
@@ -80,7 +100,7 @@ async function getWeatherData(city) {
         }
 
         const data = await response.json();
-        console.log('Weather condition:', data.weather[0].main);
+        console.log('Weather data:', data); // Debug log
         displayWeather(data);
         setWeatherBackground(data.weather[0].main);
     } catch (error) {
@@ -93,11 +113,13 @@ async function getWeatherData(city) {
 }
 
 function displayWeather(data) {
-    cityName.textContent = data.name;
+    const currentDate = document.getElementById('current-date');
+    
+    cityName.textContent = `${data.name}, ${data.sys.country}`;
+    currentDate.textContent = formatDate(data.timezone);
     temp.textContent = Math.round(data.main.temp);
     weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     description.textContent = data.weather[0].description;
-    feelsLike.textContent = `${Math.round(data.main.feels_like)}°C`;
     humidity.textContent = `${data.main.humidity}%`;
     windSpeed.textContent = `${data.wind.speed} m/s`;
     pressure.textContent = `${data.main.pressure} hPa`;

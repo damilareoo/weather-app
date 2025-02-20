@@ -152,9 +152,15 @@ header p {
     margin-top: 10px;
 }
 
+.date {
+    color: #666;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 20px;
 }
@@ -262,7 +268,7 @@ header p {
     }
 
     .metrics-grid {
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .metric-item {
