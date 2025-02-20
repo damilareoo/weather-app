@@ -9,49 +9,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="search-container">
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button id="search-btn">
-            <i class="fas fa-search"></i>
-        </button>
-    </div>
+    <div class="container">
+        <header>
+            <h1>Check Your Weather</h1>
+            <p>Enter a city name to get real-time weather information</p>
+        </header>
 
-    <div class="weather-card">
-        <div class="weather-header">
-            <h2 class="city">Weather in <span id="city-name">-</span></h2>
-            <div class="temp-container">
-                <h1 class="temperature"><span id="temp">-</span>°C</h1>
-                <img id="weather-icon" src="./images/weather.jpg" alt="weather icon">
+        <form id="weather-form">
+            <div class="search-container">
+                <input type="text" id="city-input" placeholder="Enter city name" required>
+                <button type="submit" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
-            <p class="description" id="description">-</p>
-        </div>
-        
-        <div class="metrics-grid">
-            <div class="metric-item">
-                <i class="fas fa-temperature-low"></i>
-                <span>Feels Like</span>
-                <span id="feels-like">-</span>
-            </div>
-            <div class="metric-item">
-                <i class="fas fa-tint"></i>
-                <span>Humidity</span>
-                <span id="humidity">-</span>
-            </div>
-            <div class="metric-item">
-                <i class="fas fa-wind"></i>
-                <span>Wind</span>
-                <span id="wind-speed">-</span>
-            </div>
-            <div class="metric-item">
-                <i class="fas fa-compress-arrows-alt"></i>
-                <span>Pressure</span>
-                <span id="pressure">-</span>
-            </div>
-        </div>
-    </div>
+        </form>
 
-    <div class="error-message"></div>
-    <div class="loader"></div>
+        <div id="weather-info" class="hidden">
+            <div class="weather-card">
+                <div class="weather-header">
+                    <h2 class="city">Weather in <span id="city-name">-</span></h2>
+                    <div class="temp-container">
+                        <h1 class="temperature"><span id="temp">-</span>°C</h1>
+                        <img id="weather-icon" src="" alt="weather icon">
+                    </div>
+                    <p class="description" id="description">-</p>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <i class="fas fa-temperature-low"></i>
+                        <span>Feels Like</span>
+                        <span id="feels-like">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <i class="fas fa-tint"></i>
+                        <span>Humidity</span>
+                        <span id="humidity">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <i class="fas fa-wind"></i>
+                        <span>Wind</span>
+                        <span id="wind-speed">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <span>Pressure</span>
+                        <span id="pressure">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+        <div class="loader"></div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
